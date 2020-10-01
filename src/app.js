@@ -40,7 +40,7 @@ app.setHandler({
     },
     DELIVERY_ADDRESS() {
       if (this.$googleAction.$transaction.isDeliveryAddressAccepted()) {
-        this.$googleAction.$transaction.buildReservation(order)
+        this.$googleAction.$transaction.buildReservation(reservation)
       } else if (this.$googleAction.$transaction.isDeliveryAddressRejected()) {
         this.tell('We need your address to proceed.')
       }
@@ -58,7 +58,7 @@ app.setHandler({
   }
 });
 
-const order = {
+const reservation = {
   transactionMerchant: {
     id: 'http://www.example.com',
     name: 'Test transaction',
